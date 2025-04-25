@@ -1,6 +1,5 @@
 #include <stdio.h>
-int main()
-{
+int main() {
     // minimum row print --> minrow ++
 
     // maximum coloumn print --> maxcol --
@@ -19,10 +18,8 @@ int main()
     int arr[n][m];
 
     // input
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < m; j++)
-        {
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
             scanf("%d", &arr[i][j]);
         }
     }
@@ -31,31 +28,26 @@ int main()
     int minr = 0, maxr = n - 1, minc = 0, maxc = m - 1, count = 0;
     int tne = n * m;
 
-    while (count < tne)
-    {
-        for (int j = minc; j <= maxc && count < tne; j++)
-        {
+    while (count < tne) {
+        for (int j = minc; j <= maxc && count < tne; j++) {
             printf("%d ", arr[minr][j]);
             count++;
         }
         minr++;
 
-        for (int i = minr; i <= maxr && count < tne; i++)
-        {
+        for (int i = minr; i <= maxr && count < tne; i++) {
             printf("%d ", arr[i][maxc]);
             count++;
         }
         maxc--;
 
-        for (int j = maxc; j >= minc && count < tne; j--)
-        {
+        for (int j = maxc; j >= minc && count < tne; j--) {
             printf("%d ", arr[maxr][j]);
             count++;
         }
         maxr--;
 
-        for (int i = maxr; i >= minr && count < tne; i--)
-        {
+        for (int i = maxr; i >= minr && count < tne; i--) {
             printf("%d ", arr[i][minc]);
             count++;
         }
