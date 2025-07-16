@@ -1,5 +1,6 @@
 #include <limits.h>
 #include <stdio.h>
+#define SWAP(x, y, t) ((t) = (x), (x) = (y), (y) = (t))
 int main() {
     int n, i, j, k;
     printf("Enter n : ");
@@ -10,6 +11,7 @@ int main() {
         scanf("%d", &arr[i]);
 
     for (i = 0; i < n / 2; i++) {
+        int temp;
         int minidx = -1;
         int min = INT_MAX;
         for (j = i; j <= n - 1; j++) {
@@ -18,12 +20,10 @@ int main() {
                 minidx = j;
             }
         }
-        int temp = arr[minidx];
-        arr[minidx] = arr[i];
-        arr[i] = temp;
-        for (k = 0; k < n; k++)
-            printf("%d ", arr[k]);
-        printf("\n");
+        SWAP(arr[i], arr[minidx], temp);
+        // for (k = 0; k < n; k++)
+        //     printf("%d ", arr[k]);
+        // printf("\n");
     }
     for (i = 0; i < n; i++)
         printf("%d ", arr[i]);
