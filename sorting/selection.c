@@ -10,7 +10,7 @@ int main() {
     for (i = 0; i < n; i++)
         scanf("%d", &arr[i]);
 
-    for (i = 0; i < n / 2; i++) {
+    for (i = 0; i < n - 1; i++) {
         int temp;
         int minidx = -1;
         int min = INT_MAX;
@@ -21,9 +21,6 @@ int main() {
             }
         }
         SWAP(arr[i], arr[minidx], temp);
-        // for (k = 0; k < n; k++)
-        //     printf("%d ", arr[k]);
-        // printf("\n");
     }
     for (i = 0; i < n; i++)
         printf("%d ", arr[i]);
