@@ -23,6 +23,7 @@ int main() {
 
     // sorting of array
     sort(arr, n);
+    printf("Sorted array :");
     for (int i = 0; i < n; i++)
         printf("%d ", arr[i]);
 
@@ -30,7 +31,10 @@ int main() {
     // binary search
     int ans = binarySearch(arr, target, n);
 
-    printf("%d", ans);
+    if (ans == -1)
+        printf("Element not in array");
+    else
+        printf("%d", ans);
 }
 void sort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
