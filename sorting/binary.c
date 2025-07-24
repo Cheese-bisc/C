@@ -34,7 +34,7 @@ int main() {
     if (ans == -1)
         printf("Element not in array");
     else
-        printf("%d", ans);
+        printf("Index of searched element is :%d", ans);
 }
 void sort(int arr[], int n) {
     for (int i = 0; i < n - 1; i++) {
