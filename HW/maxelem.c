@@ -12,6 +12,8 @@ int main() {
         scanf("%d", &ptr[i]);
 
     maxelem(ptr, n);
+    free(ptr);
+    ptr = NULL;
 
     return 0;
 }
