@@ -1,6 +1,6 @@
 #include <stdio.h>
 int main() {
-    int n, currMult = 1, maxMult = 1;
+    int n, currMult = 1, maxMult = 1, minMult = 1;
     printf("Enter no of elememts :");
     scanf("%d", &n);
     int arr[n];
