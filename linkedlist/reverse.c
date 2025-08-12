@@ -34,32 +34,23 @@ int main() {
   }
   printf("\n");
 
-  // insert anywhere
-  int insertPos;
-  printf("Enter the position you want to enter the new node : ");
-  scanf("%d", &insertPos);
-  count = 1;
-  node *temp = head;
-  new = malloc(sizeof(node));
-  printf("Enter integer to insert :");
-  scanf("%d", &new->a);
-  new->link = NULL;
-  while (count < insertPos - 1) {
-    temp = temp->link;
-    count++;
+  // reverse
+  node *temp = NULL;
+  node *temp2 = NULL;
+  while (head != NULL) {
+    temp2 = head->link;
+    head->link = temp;
+    temp = head;
+    head = temp2;
   }
-  new->link = temp->link;
-  temp->link = new;
-
-  // print new linked list
-  count = 1;
+  // update head to first node again
+  head = temp;
+  // print
   temp = head;
   while (temp != NULL) {
-    printf("#%d node : %d\n", count, temp->a);
+    printf("%d ", temp->a);
     temp = temp->link;
-    count++;
   }
-
   // free memory of linked list
   while (head != NULL) {
     temp = head;
