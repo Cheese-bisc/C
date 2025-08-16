@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct node {
-    int a;
-    struct node *prev;
-    struct node *next;
+  int a;
+  struct node* prev;
+  struct node* next;
 } node;
 
-node *makedll(int n,
-              node **Ptrtail); // making a double pointer so that i can get both
+node* makedll(int n,
+              node** Ptrtail); // making a double pointer so that i can get both
                                // head and tail of dll from function
-void printdll(node *head, node *tail);
-node *insert(int n, int insertPos, node *head, node **Ptrtail);
+void printdll(node* head, node* tail);
+node* insert(int n, int insertPos, node* head, node** Ptrtail);
 
 int main() {
   int n;
@@ -18,8 +18,8 @@ int main() {
   scanf("%d", &n);
 
   // make dll
-  node *tail = NULL;
-  node *head = makedll(
+  node* tail = NULL;
+  node* head = makedll(
       n, &tail); // I send the address of tail into fxn as Ptrtail which i set
                  // to the last node. So works by just returning head
   printf("\n");
@@ -35,7 +35,7 @@ int main() {
   printdll(head, tail);
 }
 
-node *makedll(int n, node **Ptrtail) {
+node* makedll(int n, node** Ptrtail) {
   node *head = NULL, *new = NULL, *curr = NULL;
   int count = 1;
   head = malloc(sizeof(node));
@@ -60,8 +60,8 @@ node *makedll(int n, node **Ptrtail) {
   return head;
 }
 
-void printdll(node *head, node *tail) {
-  node *temp = head;
+void printdll(node* head, node* tail) {
+  node* temp = head;
   int count = 1;
   while (temp != NULL) {
     printf("Element at node #%d is : %d\n", count, temp->a);
@@ -70,8 +70,8 @@ void printdll(node *head, node *tail) {
   }
   return;
 }
-node *insert(int n, int insertPos, node *head, node **Ptrtail) {
-  node *new = malloc(sizeof(node));
+node* insert(int n, int insertPos, node* head, node** Ptrtail) {
+  node* new = malloc(sizeof(node));
   printf("Enter data for the new node : ");
   scanf("%d", &new->a);
   new->prev = NULL;
@@ -94,7 +94,7 @@ node *insert(int n, int insertPos, node *head, node **Ptrtail) {
   }
 
   // Insert in the middle
-  node *temp = NULL;
+  node* temp = NULL;
   if (insertPos <= n / 2) {
     int count = 1;
     temp = head;
