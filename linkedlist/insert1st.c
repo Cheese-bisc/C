@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct node {
-  int a;
-  struct node* link;
+    int a;
+    struct node *link;
 } node;
 int main() {
   int n;
@@ -11,9 +11,9 @@ int main() {
 
   // make linked list
   int count = 1;
-  node* head = NULL;
-  node* current = NULL;
-  node* new = NULL;
+  node *head = NULL;
+  node *current = NULL;
+  node *new = NULL;
   while (count <= n) {
     if (count == 1) {
       head = malloc(sizeof(node));
@@ -37,13 +37,12 @@ int main() {
   new = malloc(sizeof(node));
   printf("Enter int to insert :");
   scanf("%d", &new->a);
-  new->link = NULL;
   new->link = head;
   head = new;
 
   // print new linked list
   count = 1;
-  node* temp = head;
+  node *temp = head;
   while (temp != NULL) {
     printf("#%d node : %d\n", count, temp->a);
     temp = temp->link;
