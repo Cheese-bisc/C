@@ -1,3 +1,4 @@
+#include <asm-generic/errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct node {
@@ -42,21 +43,21 @@ int main() {
   new->link = temp;
 
   // loop to check
-  node *slow = head;
-  node *fast = head;
+  node *slow = head->link, *fast = head->link->link;
   while (1) {
     if (slow == fast) {
-      printf("Linked list loops.");
+      printf("Looped linked list\n");
       break;
     } else {
       slow = slow->link;
       fast = fast->link->link;
     }
   }
+
   // meet at intersection point
   slow = head;
   count = 1;
-  while (slow != head) {
+  while (slow != fast) {
     slow = slow->link;
     fast = fast->link;
     count++;
