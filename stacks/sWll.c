@@ -3,14 +3,15 @@
 #include <stdlib.h>
 
 typedef struct node {
-    int data;
-    struct node *link;
+  int data;
+  struct node* link;
 } node;
 node *head = NULL, *curr = NULL;
 
 void push();
 void pop();
 void print();
+
 int main() {
   int choice;
   while (1) {
@@ -51,7 +52,7 @@ void push() {
 }
 void print() {
   printf("\n");
-  node *temp = head;
+  node* temp = head;
   while (temp != NULL) {
     printf("%d ", temp->data);
     temp = temp->link;
@@ -65,7 +66,7 @@ void pop() {
     printf("Stack Underflow");
     return;
   } else {
-    node *temp = head;
+    node* temp = head;
     head = head->link;
     printf("Popped %d", temp->data);
     free(temp);
