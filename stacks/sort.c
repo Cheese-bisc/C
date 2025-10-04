@@ -27,6 +27,19 @@ void push(stack* ptr, int val) {
   return;
 }
 
+void sort(stack* ptr) {
+  for (int i = 0; i < ptr->top; i++) {
+    for (int j = 0; j < ptr->top - i; j++) {
+      if (ptr->arr[j] > ptr->arr[j + 1]) {
+        int temp = ptr->arr[j];
+        ptr->arr[j] = ptr->arr[j + 1];
+        ptr->arr[j + 1] = temp;
+      }
+    }
+  }
+  return;
+}
+
 void pop(stack* ptr) {
   int val;
   if (isEmpty(ptr))
@@ -39,11 +52,12 @@ void pop(stack* ptr) {
 }
 
 void print(stack* ptr) {
-  int i = ptr->top;
-  while (i <= 0) {
-    printf("%d", ptr->arr[i]);
-    i--;
+  int i = 0;
+  while (i <= ptr->top) {
+    printf("%d ", ptr->arr[i]);
+    i++;
   }
+  printf("\n");
   return;
 }
 
@@ -53,10 +67,11 @@ int main() {
   printf("Enter size of stack : ");
   scanf("%d", &s1->size);
   s1->top = -1;
-  s1->arr = malloc(s1->size * sizeof(stack));
+  s1->arr = malloc(s1->size * sizeof(int));
 
   while (1) {
-    printf("---Enter your choice---\n1.Push\n2.Pop\n3.Print\n->");
+    printf("\n---Enter your "
+           "choice---\n1.Push\n2.Pop\n3.Print\n4.Exit\n5.Sort\n->");
     scanf("%d", &choice);
     switch (choice) {
     case 1:
@@ -68,7 +83,13 @@ int main() {
       pop(s1);
       break;
     case 3:
+      printf("\n");
       print(s1);
+      break;
+    case 4:
+      exit(0);
+    case 5:
+      sort(s1);
       break;
     default:
       printf("Enter valid arg");

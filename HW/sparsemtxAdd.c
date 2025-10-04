@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 int main() {
   int c, r;
   int countz1 = 0, countz2 = 0;
@@ -87,8 +88,8 @@ int main() {
   }
   while (i < count1) {
     addArr[0][k] = cArr1[0][i];
-    addArr[1][k] = cArr2[1][i];
-    addArr[2][k] = cArr2[2][i];
+    addArr[1][k] = cArr1[1][i];
+    addArr[2][k] = cArr1[2][i];
     k++, i++, m++;
   }
   while (j < count2) {
@@ -104,6 +105,20 @@ int main() {
     for (j = 0; j < m; j++) {
       printf("%d ", addArr[i][j]);
     }
+    printf("\n");
+  }
+
+  // transpose
+  int transarr[m][3];
+  for (int i = 0; i < m; i++) {
+    for (int j = 0; j < 3; j++) {
+      transarr[i][j] = addArr[j][i];
+    }
+  }
+  printf("\nTranspose arr is :\n");
+  for (int i = 0; i < m; i++) {
+    for (int j = 0; j < 3; j++)
+      printf("%d ", transarr[i][j]);
     printf("\n");
   }
 

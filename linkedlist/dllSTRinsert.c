@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct node {
-    int a;
-    struct node *prev;
-    struct node *next;
+  int a;
+  struct node* prev;
+  struct node* next;
 } node;
 typedef struct headtail {
-    node *head;
-    node *tail;
+  node* head;
+  node* tail;
 } headtail;
-headtail *makedll(int n, headtail *ht);
-void print(headtail *ht);
-headtail *insert(headtail *ht, int n);
+headtail* makedll(int n, headtail* ht);
+void print(headtail* ht);
+headtail* insert(headtail* ht, int n);
 
 int main() {
   int n;
@@ -19,7 +19,7 @@ int main() {
   scanf("%d", &n);
 
   // make dll
-  headtail *ht1 = malloc(sizeof(headtail));
+  headtail* ht1 = malloc(sizeof(headtail));
   makedll(n, ht1);
 
   // insert
@@ -31,7 +31,7 @@ int main() {
 
   return 0;
 }
-headtail *makedll(int n, headtail *ht) {
+headtail* makedll(int n, headtail* ht) {
   int count = 1;
   node *head = NULL, *curr = NULL, *new = NULL;
   head = malloc(sizeof(node));
@@ -55,8 +55,8 @@ headtail *makedll(int n, headtail *ht) {
   ht->tail = curr;
   return ht;
 }
-void print(headtail *ht) {
-  node *temp = ht->head;
+void print(headtail* ht) {
+  node* temp = ht->head;
   int count = 1;
   while (temp != NULL) {
     printf("Element at node #%d is : %d\n", count, temp->a);
@@ -65,12 +65,12 @@ void print(headtail *ht) {
   }
   return;
 }
-headtail *insert(headtail *ht, int n) {
-  node *temp = NULL;
+headtail* insert(headtail* ht, int n) {
+  node* temp = NULL;
   int newnode, count = 1;
   printf("Enter the number of nodes : ");
   scanf("%d", &newnode);
-  headtail *iht = malloc(sizeof(headtail));
+  headtail* iht = malloc(sizeof(headtail));
   iht = makedll(newnode, iht);
   int ipos;
   printf("Enter position to insert :");

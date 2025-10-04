@@ -14,6 +14,9 @@ int main() {
   input(arr, r, c);
   printf("Enter matrix #2: ");
   input(brr, r, c);
+  print(arr, r, c);
+
+  return 0;
 }
 void input(int* arr, int r, int c) {
   for (int i = 0; i < r; i++)
