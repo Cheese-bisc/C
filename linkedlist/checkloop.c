@@ -1,9 +1,8 @@
-#include <asm-generic/errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct node {
-    int a;
-    struct node *link;
+  int a;
+  struct node* link;
 } node;
 int main() {
   int n;
@@ -11,9 +10,9 @@ int main() {
   scanf("%d", &n);
 
   // make linked list
-  node *head = NULL;
-  node *current = NULL;
-  node *new = NULL;
+  node* head = NULL;
+  node* current = NULL;
+  node* new = NULL;
   int count = 1;
   while (count <= n) {
     if (count == 1) {
@@ -34,7 +33,7 @@ int main() {
     }
   }
   // make it a looped linked list
-  node *temp = head;
+  node* temp = head;
   count = 1;
   while (count <= 3) {
     temp = temp->link;

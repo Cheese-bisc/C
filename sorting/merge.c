@@ -27,15 +27,15 @@ void merge(int A[], int mid, int low, int high) {
     B[k] = A[j];
     k++, j++;
   }
-  for (int i = low; i <= high; i++) {
+  for (i = low; i <= high; i++) {
     A[i] = B[i];
   }
 }
 
 void mergeSort(int A[], int low, int high) {
   int mid;
+  mid = low + ((high - low) / 2);
   if (low < high) {
-    mid = (low + high) / 2;
     mergeSort(A, low, mid);
     mergeSort(A, mid + 1, high);
     merge(A, mid, low, high);
